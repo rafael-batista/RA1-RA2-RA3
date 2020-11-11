@@ -3,10 +3,10 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>CRUD - Rafael Batista</title>
+        <title>CRUD</title>
     </h:head>
     <h:body>
-        <h1>CRUD - Rafael Batista</h1>
+        <h1>CRUD</h1>
         <h:form>
             <h:panelGrid columns="2" cellpadding="5">
                 <h:outputText value="Name " />
@@ -23,7 +23,7 @@
                 <p:inputText value="#{bookController.year}"/>
                 <h:outputText value="Price " />
                 <p:inputText value="#{bookController.price}"/>
-                <p:commandButton value="Adicionar" icon="fa fa-fw fa-plus" action="#{bookController.createBook()}"/>
+                <p:commandButton value="Add" icon="fa fa-fw fa-plus" action="#{bookController.createBook()}"/>
             </h:panelGrid>
         </h:form>
         <h:form id="form">
@@ -50,10 +50,10 @@
                     <h:outputText value="$#{book.price}"/>
                 </p:column>
                 <p:column style="width:100px;text-align: center">
-                    <p:commandButton value="Editar" icon="fa-pencil" update=":form:bookEdit" oncomplete="PF('editDialog').show()">
+                    <p:commandButton value="E" icon="fa-pencil" update=":form:bookEdit" oncomplete="PF('editDialog').show()">
                         <f:setPropertyActionListener value="#{book}" target="#{bookController.selectedBook}"/>
                     </p:commandButton>
-                    <p:commandButton value="Deletar" action="#{bookController.deleteBook(book)}" icon="fa-trash"></p:commandButton>
+                    <p:commandButton value="D" action="#{bookController.deleteBook(book)}" icon="fa-trash"></p:commandButton>
                 </p:column>
             </p:dataTable>
             <p:dialog header="Edit Book" widgetVar="editDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
