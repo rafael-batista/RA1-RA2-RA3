@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">      
+    <h:body>
+        <h3>JSF 2.0 + Ajax Hello World Example</h3>
+
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="3">
+                <h:outputText value="name"/>
+                <h:inputText id="name" value="#{helloBean.name}"></h:inputText>
+                
+                <h:outputText value="Program: "/>
+                <h:selectOneMenu id="program" value="#{helloBean.program}">
+                    <f:selectItem itemValue="0" itemLabel="-" />
+                    <f:selectItem itemValue="1" itemLabel="Tecnológias para desenvolvimento web" />
+                    <f:selectItem itemValue="2" itemLabel="Oficina Certificadora" />
+                    <f:selectItem itemValue="3" itemLabel="Outra Disciplina" />
+                </h:selectOneMenu>
+                
+                <h:outputText value="Date: "/>
+                <h:inputText value="#{helloBean.someDate}">
+                    <f:convertDateTime pattern="dd-mm-yyyy" />
+                </h:inputText>
+                
+                <h:commandButton value="Welcome Me">
+                    <f:ajax execute="name" render="outputName" />
+                    <f:ajax execute="program" render="outputProgram" />
+                    <f:ajax execute="someDate" render="outputSomeDate" />
+                </h:commandButton>
+
+                <h2><h:outputText id="outputName" value="#{helloBean.sayWelcome}" /></h2>
+                <h2><h:outputText id="outputProgram" value="#{helloBean.sayProgram}" /></h2>
+                <h2><h:outputText id="outputSomeDate" value="#{helloBean.saySomeDate}" >
+                        <f:convertDateTime pattern="dd-mm-yyyy" />
+                    </h:outputText>
+                </h2>
+            </h:panelGrid>
+
+        </h:form>
+
+    </h:body>
+</html>
